@@ -2,6 +2,8 @@
 
 A minimal, self-improving project operating system for AI agent teams.
 
+Born from real multi-agent operating workflows at Obenan.
+
 ## What this is
 
 Obi-Harness is a directory template that turns any project folder into a structured workspace where AI agents can coordinate, learn from each other, and improve over time.
@@ -24,7 +26,7 @@ Obi-Harness solves this by making the project directory itself the shared operat
 
 ### Layer 1: Project workspace (start here)
 
-Six files and two folders. This is what you create on day one.
+Seven files and two folders. This is what you create on day one.
 
 ```
 your-project/
@@ -60,7 +62,7 @@ Execution logs capture what each agent session did and whether it worked. A retr
 Once you have two or more projects using Obi-Harness, patterns that work everywhere get promoted to a shared core.
 
 ```
-project-os-core/
+shared-core/
   PROTOCOLS.md
   FAILURE_PATTERNS.md
   templates/
@@ -89,9 +91,21 @@ Then edit each file for your specific project.
 
 This copies the template and substitutes the project name in each file.
 
+## When to add each layer
+
+Start with Layer 1 only.
+
+Add Layer 2 when:
+
+- the same failure happens twice
+- you want a retrospective agent to improve the harness
+- the project has enough parallel sessions that agent learning should become explicit
+
+Add Layer 3 only after you have at least 2 active projects using Obi-Harness and you can prove a protocol or failure pattern is reusable across them.
+
 ## Core principles
 
-**Start small.** Six files on day one. Not twenty.
+**Start small.** Seven files on day one. Not twenty.
 
 **Every file earns its place.** If a file is not being read by agents or updated by humans, remove it.
 
@@ -132,8 +146,9 @@ The core insight: the directory IS the harness. The harness should improve itsel
 
 ## Examples
 
-- [Website project](examples/website-project/) - Based on a real multi-agent website build
-- [Product project](examples/product-project/) - Product development workspace
+- [Examples overview](examples/README.md) - What each example includes and how to use it
+- [Website project](examples/website-project/) - A miniature multi-agent website workspace
+- [Product project](examples/product-project/) - A miniature product development workspace
 
 ## License
 

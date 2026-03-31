@@ -17,8 +17,7 @@ Acme is rebuilding its public website to match its new brand positioning. The pr
 - `DOMAIN.md` - brand rules, design system, repo structure
 - `BENCHMARKS.md` - what "good" means for each page
 - `DECISIONS_LOG.md` - key design and implementation decisions
-- `templates/LANDING_PAGE_BUILDER.md` - prompt for agents building new landing pages
-- `templates/BRAND_CONSISTENCY_AUDITOR.md` - prompt for brand consistency reviews
+- `templates/` - reusable prompts for page builders and brand reviews
 - `reference/` - brand documents, competitor screenshots, design specs
 
 ## File stability
