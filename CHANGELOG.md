@@ -12,3 +12,13 @@ Initial release.
 - Examples: website project, product project
 - Init script for bootstrapping new projects
 - MIT license
+
+## v1.0.1 - 2026-03-31
+
+Release polish.
+
+- fixed README inconsistencies around day-one file count
+- aligned shared-core naming in the README
+- added a short layer-adoption guide
+- added `CONTRIBUTING.md`
+- expanded examples into honest miniature workspaces

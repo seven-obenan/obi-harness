@@ -17,8 +17,7 @@ A full rebuild of the Acme customer dashboard. The project covers the review man
 - `DOMAIN.md` - product constraints, API boundaries, user roles
 - `BENCHMARKS.md` - quality, performance, and UX standards
 - `DECISIONS_LOG.md` - architecture and UX decisions
-- `templates/FEATURE_BUILDER.md` - prompt for agents building new features
-- `templates/BUG_INVESTIGATOR.md` - prompt for agents debugging issues
+- `templates/` - reusable prompts for feature work and bug investigation
 - `reference/` - wireframes, API docs, user research
 
 ## File stability
