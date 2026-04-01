@@ -14,6 +14,8 @@ It does not build. It does not fix code. It improves the operating system itself
 - After a notable failure
 - After a successful multi-agent coordination effort
 - Before starting a new phase of the project
+- After a parallel-agent conflict or merge hotspot incident
+- After a major release or milestone when you want to preserve what worked
 
 ## How to run it
 
@@ -59,6 +61,17 @@ For each one:
 - **Adopt:** Apply the change to the relevant file. Log it in `meta/HARNESS_CHANGELOG.md`. Move the proposal to a dated `adopted/` subfolder or delete it.
 - **Reject:** Add a note explaining why and delete the proposal.
 - **Defer:** Leave it in `proposals/` for future consideration.
+
+## Practical trigger rule
+
+If you are wondering whether a retrospective is worth it, the answer is usually yes when one of these is true:
+
+- the same mistake happened twice
+- multiple agents touched the same hot area
+- a release required more verification than expected
+- a stable-core rule now feels incomplete
+
+If none of those are true, keep shipping and defer the retrospective.
 
 ## Evaluator variants
 
