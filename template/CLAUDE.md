@@ -15,7 +15,11 @@ Read these three files before every session. Everything else is indexed in `STAR
 
 ## Key rules
 
+- Files are memory. Chat is not. Write durable decisions to files.
 - Do not let important decisions live only in chat history. Write them to `DECISIONS_LOG.md`.
 - Update `STATUS.md` when your work changes the state of any active workstream.
 - If you discover a repeating failure, add it to `meta/FAILURES.md` (create the meta layer if it does not exist yet).
+- Resume an existing workstream session when possible instead of starting fresh.
+- Before ending a task, write back the current state to the canonical files that changed.
+- If parallel builders may touch overlapping write surfaces, use isolated branches or worktrees.
 - Prefer reading the current state of files over recalling prior context. Files are the source of truth.

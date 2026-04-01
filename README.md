@@ -141,6 +141,7 @@ The core insight: the directory IS the harness. The harness should improve itsel
 ## Documentation
 
 - [Operating Model](docs/OPERATING_MODEL.md) - How the 3 layers work together
+- [Claude Code Optimization](docs/CLAUDE_CODE_OPTIMIZATION.md) - Practical guidance for Claude Code inside Obi-Harness
 - [Retrospective Agent](docs/RETROSPECTIVE_AGENT.md) - How to run the self-improvement loop
 - [Evaluator Roles](docs/EVALUATOR_ROLES.md) - Specialized agents that assess, not build
 

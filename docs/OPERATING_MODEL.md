@@ -47,6 +47,26 @@ Stable files are infrastructure. They change only when the project's direction c
 
 Evolving files are operational. They change with every session. Agents should update them freely.
 
+### Parallel builder isolation
+
+When multiple builder agents are working in parallel, isolate mutable work.
+
+Use separate branches or worktrees when:
+
+- the same route family is being edited
+- shared locale files are involved
+- shared config or metadata files are involved
+- one builder's in-progress edits would confuse another builder
+
+Known merge hotspots usually include:
+
+- shared locale JSON files
+- shared configuration files
+- global metadata files
+- status or coordination files edited by many agents
+
+Evaluator agents should avoid sharing a mutable builder workspace when possible. Review against the current source of truth instead.
+
 ## Layer 2: Meta layer
 
 This layer appears when the project has accumulated enough agent sessions to learn from. Do not create it on day one.
@@ -57,6 +77,8 @@ Create the meta layer when any of these happen:
 - The same failure occurs twice
 - You want to run a retrospective on recent agent work
 - A protocol change is needed and you want to track why
+- Parallel-agent conflicts become common
+- A release or major milestone just finished and you want to preserve lessons
 
 ### The self-improvement loop
 
