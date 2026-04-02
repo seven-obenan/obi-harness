@@ -1,14 +1,20 @@
 # Obi-Harness
 
-A minimal, self-improving project operating system for AI agent teams.
+A minimal, filesystem-native project-files harness for AI agent teams.
 
 Born from real multi-agent operating workflows at Obenan.
 
 ## What this is
 
-Obi-Harness is a directory template that turns any project folder into a structured workspace where AI agents can coordinate, learn from each other, and improve over time.
+Obi-Harness is a filesystem-native harness for a single project workspace.
+
+It turns a project directory into a structured memory and coordination surface where AI agents can coordinate, learn from each other, and improve over time through canonical files.
 
 It was built from real production experience running multi-agent teams across website development, product builds, and business operations. The patterns in this repo were validated before they were documented.
+
+This repo is intentionally project-scoped.
+It is for making one project directory legible, durable, and reusable across agents and sessions.
+It is not an agent runtime, control plane, or messaging orchestrator.
 
 ## Why this exists
 
@@ -20,7 +26,7 @@ Modern AI agents (Claude Code, Cursor, Codex, Windsurf, and others) are powerful
 - Nobody knows what "done" means
 - The same failure happens three times before someone writes a rule about it
 
-Obi-Harness solves this by making the project directory itself the shared operating context. Any agent spawned from the directory inherits the full project intelligence.
+Obi-Harness solves this by making the project directory itself the shared operating context. The project files become the harness. Any agent spawned from the directory inherits the project's durable intelligence.
 
 ## The 3-layer model
 
@@ -125,8 +131,9 @@ Add Layer 3 only after you have at least 2 active projects using Obi-Harness and
 - Not a replacement for git, CI/CD, or deployment pipelines
 - Not a framework that requires installation or dependencies
 - Not opinionated about which AI model or coding tool you use
+- Not an agent runtime, personal assistant shell, or multi-channel control plane
 
-It is just a directory structure with well-designed files that make AI agents better at working together.
+It is a powerful project-files harness: a directory structure with well-designed canonical files that make AI agents better at working together inside a real project.
 
 ## Background
 

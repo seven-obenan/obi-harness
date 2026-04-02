@@ -32,3 +32,11 @@ Claude Code optimization pass.
 - added practical worktree and merge-hotspot guidance to `docs/OPERATING_MODEL.md`
 - clarified retrospective trigger conditions in `docs/RETROSPECTIVE_AGENT.md`
 - added concrete failure examples to the meta and shared-core templates
+
+## v1.0.3 - 2026-04-02
+
+Positioning clarification.
+
+- clarified the public framing of Obi-Harness as a filesystem-native project-files harness
+- made the README more explicit that the project directory itself is the harness
+- clarified in `docs/OPERATING_MODEL.md` that Obi-Harness is project-scoped, not a runtime or control plane

@@ -1,6 +1,6 @@
 # Operating Model
 
-How the 3 layers of Obi-Harness work together.
+How the 3 layers of Obi-Harness work together inside a project workspace.
 
 ## The model
 
@@ -14,9 +14,15 @@ Layer 1: Project Workspace     (day-to-day agent work)
 
 Each layer builds on the one below it. You always start with Layer 1. Layers 2 and 3 appear when the project needs them.
 
+Obi-Harness is filesystem-native and project-scoped.
+Its job is to improve how agents work through canonical project files inside one real project directory.
+It is not a runtime or control plane outside the project workspace.
+
 ## Layer 1: Project workspace
 
 This is where work happens. Agents read the project files, execute tasks, and write their findings back.
+
+Layer 1 is the harness in its most important form: the project's own files become the memory, coordination surface, and operating shell.
 
 ### File roles
 
