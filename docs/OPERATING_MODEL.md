@@ -18,6 +18,28 @@ Obi-Harness is filesystem-native and project-scoped.
 Its job is to improve how agents work through canonical project files inside one real project directory.
 It is not a runtime or control plane outside the project workspace.
 
+## Operating discipline
+
+The harness is not only where files live. It is how agent work is disciplined.
+
+The default loop is:
+
+1. **Orient** — read the mandatory files and current state before acting
+2. **Specify success** — make the expected outcome and verification criteria explicit
+3. **Execute in bounded phases** — keep work scoped, resumable, and compactable
+4. **Verify independently** — do not let the builder’s own claim be the only proof
+5. **Write back** — update durable files so the next session does not rediscover the same truth
+6. **Improve the harness** — capture failures and promote proven protocols over time
+
+This discipline is universal across project types.
+
+Software-heavy projects may add a stricter engineering overlay, but the core harness should always preserve:
+
+- memory in files, not chat
+- explicit verification before “done”
+- separation between building and evaluating when the task is non-trivial
+- phased work instead of one giant ambiguous session
+
 ## Layer 1: Project workspace
 
 This is where work happens. Agents read the project files, execute tasks, and write their findings back.
@@ -46,6 +68,19 @@ Every agent reads 3 files before starting:
 3. `STATUS.md`
 
 Everything else is indexed in `START_HERE.md` and pulled on demand. This keeps token usage low and lets agents focus on what matters for their specific task.
+
+### What “done” means at Layer 1
+
+Layer 1 work is not done just because a builder says it is done.
+
+At minimum, a completed session should leave behind:
+
+- the work product
+- explicit verification evidence appropriate to the task
+- updated `STATUS.md` if shared state changed
+- updated `DECISIONS_LOG.md` if the work changed durable direction
+
+If verification is still pending, the status should say so plainly.
 
 ### The stable/evolving split
 
@@ -108,7 +143,10 @@ The key safety rule: **observe, propose, review, adopt.** The retrospective agen
 
 ### Execution logs
 
-After significant agent sessions, log:
+Execution logs are optional and secondary to curated durable files such as `STATUS.md`, `DECISIONS_LOG.md`,
+and `FAILURES.md`.
+
+After significant agent sessions, if the session taught something not already captured there, log:
 
 ```
 meta/execution-log/YYYY-MM-DD-task-name/
@@ -160,3 +198,15 @@ A pattern enters the shared core only when:
 **Layer 3 feeds Layer 1:** When a new project is created, it inherits proven protocols from the shared core.
 
 This creates a compounding loop: every project makes every future project better.
+
+## Bootstrap sequence
+
+For a new project, the recommended adoption order is:
+
+1. Start with Layer 1 only
+2. Define the stable project files for domain, behavior, and success criteria
+3. Define verification benchmarks early, before agents start making completion claims
+4. If the project is software-heavy, activate an engineering overlay
+5. Add Layer 2 only when repeated failures or coordination complexity justify it
+
+This keeps the harness small on day one while still leaving a clean path to stricter discipline when the project grows.

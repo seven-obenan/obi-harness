@@ -24,6 +24,11 @@ Without benchmarks, the system cannot measure whether agents are improving. Ever
 <!-- - No regression in adjacent components -->
 <!-- - Production deploy succeeds -->
 
+Make these concrete enough that an evaluator can say:
+- verified
+- partially verified
+- not yet verified
+
 ## Agent performance benchmarks
 
 <!-- How do you measure whether agents are working well? -->
@@ -41,3 +46,15 @@ Without benchmarks, the system cannot measure whether agents are improving. Ever
 <!-- - Feature: code merged, deployed, verified on production -->
 <!-- - Bug fix: root cause identified, fix applied, regression test added -->
 <!-- - Content: copy approved, translated, live on all locales -->
+
+## Evidence of done
+
+<!-- What evidence must exist before an agent can claim completion? -->
+<!-- Examples: -->
+<!-- - passing test output -->
+<!-- - browser verification on changed routes -->
+<!-- - reviewer sign-off -->
+<!-- - rendered document or exported asset check -->
+<!-- - production or preview URL validation -->
+
+Without explicit evidence, work is not done. It is only in progress or awaiting verification.

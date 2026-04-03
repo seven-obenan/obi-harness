@@ -28,6 +28,29 @@ Modern AI agents (Claude Code, Cursor, Codex, Windsurf, and others) are powerful
 
 Obi-Harness solves this by making the project directory itself the shared operating context. The project files become the harness. Any agent spawned from the directory inherits the project's durable intelligence.
 
+## Universal discipline
+
+Obi-Harness is not just a file layout. It defines a lightweight operating discipline for AI-led project work:
+
+- files are memory
+- work happens in loops, not one-shot sessions
+- builders build and evaluators verify
+- completion claims require explicit verification
+- durable corrections must be written back
+- projects should phase work and compact intentionally
+
+This public core stays project-files-first and tool-agnostic.
+
+For software-heavy projects, Obi-Harness supports an **optional engineering overlay** with stricter practices such as:
+
+- `spec -> test -> implement -> verify`
+- CI-backed verification
+- adversarial QA
+- eval loops
+- test pyramid guidance
+
+That overlay is described in [Engineering Overlay](docs/ENGINEERING_OVERLAY.md). It is a companion discipline, not the identity of Obi-Harness itself.
+
 ## The 3-layer model
 
 ### Layer 1: Project workspace (start here)
@@ -89,6 +112,14 @@ cd ~/projects/my-new-project/
 
 Then edit each file for your specific project.
 
+Recommended bootstrap sequence:
+
+1. Copy or initialize the template
+2. Define the stable project files (`DOMAIN.md`, `BENCHMARKS.md`, `AGENTS.md`)
+3. Define what verification and “done” mean for the project
+4. If this is a software project, activate the [Engineering Overlay](docs/ENGINEERING_OVERLAY.md)
+5. Only then add project-specific rules, automation, or stricter guardrails
+
 ### Option 2: Use the init script
 
 ```bash
@@ -148,6 +179,7 @@ The core insight: the directory IS the harness. The harness should improve itsel
 ## Documentation
 
 - [Operating Model](docs/OPERATING_MODEL.md) - How the 3 layers work together
+- [Engineering Overlay](docs/ENGINEERING_OVERLAY.md) - Optional stricter discipline for software-heavy projects
 - [Claude Code Optimization](docs/CLAUDE_CODE_OPTIMIZATION.md) - Practical guidance for Claude Code inside Obi-Harness
 - [Retrospective Agent](docs/RETROSPECTIVE_AGENT.md) - How to run the self-improvement loop
 - [Evaluator Roles](docs/EVALUATOR_ROLES.md) - Specialized agents that assess, not build

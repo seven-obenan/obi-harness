@@ -21,7 +21,26 @@ Prevention:
 Status: [active / mitigated]
 -->
 
-## Example promoted pattern
+## Promoted patterns
+
+### False completion without real verification
+
+Observed in: product-spec, website-rebuild
+
+Pattern:
+- a builder reported work as complete because the intended output looked plausible
+- no independent verification was performed at the level the task actually required
+
+Root cause:
+- builder confidence was treated as evidence
+- verification criteria were too vague or never written down
+
+Prevention:
+- define explicit evidence of done in the project benchmarks
+- require independent verification for non-trivial work
+- keep partial verification visible in status instead of quietly calling it done
+
+Status: active
 
 ### Chat-only decisions disappear across sessions
 
@@ -40,3 +59,41 @@ Prevention:
 - active state belongs in the status layer
 
 Status: mitigated
+
+### Scope expansion by builder agents
+
+Observed in: website-rebuild, product-spec
+
+Pattern:
+- a builder started with a bounded task and then expanded into adjacent work without explicit approval
+- the final state mixed the intended fix with opportunistic extra changes
+
+Root cause:
+- success criteria were not bounded tightly enough
+- builders optimized for “more improvement” instead of “exactly the assigned outcome”
+
+Prevention:
+- define the target outcome and verification before implementation
+- use phased execution for non-trivial tasks
+- require evaluators to check for scope drift as part of review
+
+Status: active
+
+### Repeated rediscovery of known corrections
+
+Observed in: product-spec, repo-release
+
+Pattern:
+- later sessions rediscovered a correction that earlier sessions had already learned
+- time was wasted re-diagnosing known issues
+
+Root cause:
+- durable lessons were left in chat or buried in transient handoffs
+- failure patterns and decisions were not updated at the time of learning
+
+Prevention:
+- write durable corrections into canonical files in the same session
+- treat repeated rediscovery as a harness failure, not just a task failure
+- use retrospectives to promote recurring lessons into the shared core
+
+Status: active

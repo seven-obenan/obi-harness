@@ -40,3 +40,13 @@ Positioning clarification.
 - clarified the public framing of Obi-Harness as a filesystem-native project-files harness
 - made the README more explicit that the project directory itself is the harness
 - clarified in `docs/OPERATING_MODEL.md` that Obi-Harness is project-scoped, not a runtime or control plane
+
+## v1.0.4 - 2026-04-03
+
+Universal discipline pass.
+
+- strengthened the public doctrine around loops, verification, phased work, and durable writeback
+- clarified the distinction between Obi-Harness core and an optional engineering overlay
+- added `docs/ENGINEERING_OVERLAY.md` for software-heavy projects
+- strengthened the project template with clearer completion discipline and evidence-of-done expectations
+- promoted universal protocols and failure patterns into the shared-core template

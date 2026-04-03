@@ -23,3 +23,6 @@ Read these three files before every session. Everything else is indexed in `STAR
 - Before ending a task, write back the current state to the canonical files that changed.
 - If parallel builders may touch overlapping write surfaces, use isolated branches or worktrees.
 - Prefer reading the current state of files over recalling prior context. Files are the source of truth.
+- Work in loops, not one-shot sessions.
+- Verify before stopping. Do not let “done” outrun the evidence.
+- If the task is non-trivial, prefer independent evaluation over builder self-certification.
