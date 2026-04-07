@@ -50,3 +50,13 @@ Universal discipline pass.
 - added `docs/ENGINEERING_OVERLAY.md` for software-heavy projects
 - strengthened the project template with clearer completion discipline and evidence-of-done expectations
 - promoted universal protocols and failure patterns into the shared-core template
+
+## v1.0.5 - 2026-04-07
+
+Public explanation simplification.
+
+- rewrote the README opening to explain Obi-Harness in plainer language with a clearer human / agent / file mental model
+- added a visual explanation of how accepted truth moves through the directory and becomes reusable memory
+- clarified in the README and operating model that execution logs are optional and secondary to durable files
+- documented the optional control-tower / `META_HARNESS.md` pattern for advanced multi-lane workspaces without making it part of day-one setup
+- added a frictionless README bootstrap prompt so new users can initialize a project by pasting one agent prompt and answering only the missing context

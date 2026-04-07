@@ -8,7 +8,7 @@ Born from real multi-agent operating workflows at Obenan.
 
 Obi-Harness is a filesystem-native harness for a single project workspace.
 
-It turns a project directory into a structured memory and coordination surface where AI agents can coordinate, learn from each other, and improve over time through canonical files.
+It turns a project directory into a structured memory and coordination surface where humans and AI agents can coordinate, prove what is true, and improve over time through canonical files.
 
 It was built from real production experience running multi-agent teams across website development, product builds, and business operations. The patterns in this repo were validated before they were documented.
 
@@ -16,30 +16,52 @@ This repo is intentionally project-scoped.
 It is for making one project directory legible, durable, and reusable across agents and sessions.
 It is not an agent runtime, control plane, or messaging orchestrator.
 
-## Why this exists
+## In plain English
 
-Modern AI agents (Claude Code, Cursor, Codex, Windsurf, and others) are powerful individually. But when you need multiple agents working on the same project, across sessions, across days, things break down:
+Obi-Harness gives one project a small set of canonical files that act as:
 
-- Agents repeat mistakes that previous agents already solved
-- Important decisions live only in chat history and get lost
-- One agent's work contradicts another's
-- Nobody knows what "done" means
-- The same failure happens three times before someone writes a rule about it
+- shared memory
+- coordination surface
+- proof record
+- self-improvement loop
 
-Obi-Harness solves this by making the project directory itself the shared operating context. The project files become the harness. Any agent spawned from the directory inherits the project's durable intelligence.
+The directory becomes the thing agents inherit.
 
-## Universal discipline
+```mermaid
+flowchart LR
+    A["Human sets blocker and proof bar"] --> B["Agent works on one bounded task"]
+    B --> C["Result is verified"]
+    C --> D["Accepted truth is written into files"]
+    D --> E["Next session starts from those files"]
+```
 
-Obi-Harness is not just a file layout. It defines a lightweight operating discipline for AI-led project work:
+## Who does what
 
-- files are memory
-- work happens in loops, not one-shot sessions
-- builders build and evaluators verify
-- completion claims require explicit verification
-- durable corrections must be written back
-- projects should phase work and compact intentionally
+| Actor | Job |
+|---|---|
+| Human / operator | choose the blocker, owner, and acceptance bar |
+| Builder agent | implement a bounded task |
+| Evaluator agent | verify the result independently when needed |
+| Canonical files | store accepted truth for the next session |
 
-This public core stays project-files-first and tool-agnostic.
+## How it becomes self-learning
+
+Obi-Harness does not “learn” by keeping one giant prompt.
+It learns when accepted truth is written back into durable files.
+
+1. An agent does work.
+2. The result is verified.
+3. Accepted truth is written into the directory.
+4. Repeated lessons become failure patterns, protocols, or template improvements.
+
+That is the whole compounding loop.
+
+## If you only remember four things
+
+- Files are memory.
+- One blocker, one owner, one proof surface.
+- Claims are not proof.
+- Update the harness when truth changes.
 
 For software-heavy projects, Obi-Harness supports an **optional engineering overlay** with stricter practices such as:
 
@@ -50,6 +72,18 @@ For software-heavy projects, Obi-Harness supports an **optional engineering over
 - test pyramid guidance
 
 That overlay is described in [Engineering Overlay](docs/ENGINEERING_OVERLAY.md). It is a companion discipline, not the identity of Obi-Harness itself.
+
+## What goes wrong without it
+
+Modern AI agents (Claude Code, Cursor, Codex, Windsurf, and others) are powerful individually. But when you need multiple agents working on the same project, across sessions, across days, things break down:
+
+- Agents repeat mistakes that previous agents already solved
+- Important decisions live only in chat history and get lost
+- One agent's work contradicts another's
+- Nobody knows what "done" means
+- The same failure happens three times before someone writes a rule about it
+
+Obi-Harness solves this by making the project directory itself the shared operating context. The project files become the harness. Any agent spawned from the directory inherits the project's durable intelligence.
 
 ## The 3-layer model
 
@@ -84,7 +118,9 @@ your-project/meta/
   proposals/
 ```
 
-Execution logs capture what each agent session did and whether it worked. A retrospective agent reads these logs and proposes improvements to the harness.
+Optional execution logs capture the sessions that taught something not already written into durable files. A retrospective agent reads those logs and proposes improvements to the harness.
+
+Some advanced projects also add a short control-tower file such as `META_HARNESS.md` that points to deeper ledgers. That is optional and only earns its place when one `STATUS.md` is no longer enough.
 
 ### Layer 3: Shared core (after 2+ projects)
 
@@ -102,6 +138,42 @@ shared-core/
 A pattern only enters the shared core after it has been validated in at least two projects. No speculative additions.
 
 ## Quick start
+
+### Fastest path: one prompt
+
+If you want the lowest-friction setup, open your project in your coding agent and paste this prompt:
+
+```text
+You are initializing Obi-Harness for this project.
+
+First, inspect the current directory and infer what kind of project this is.
+Do not start by asking a long questionnaire.
+
+Ask me only the minimum missing questions needed to tailor the harness, such as:
+- what this project is for
+- what I want help with first
+- what should count as proof of done
+- whether this will involve multiple agents
+- if software-heavy, what stack or runtime matters most
+
+Then initialize or adapt Obi-Harness for this project:
+- start with Layer 1 only unless the project has clearly earned more
+- keep the setup minimal and concrete
+- tailor the canonical files to this project, not generic theory
+- use the engineering overlay only if this is truly a software-heavy project
+- do not add extra files unless they clearly earn their place
+
+If Obi-Harness is not yet present in this project, ask me for the local path to it or where you should copy the template from.
+
+When finished, return:
+1. the project type you inferred
+2. the files you created or updated
+3. what "done" means in this project
+4. the current blocker or first workstream
+5. the best next prompt or next step for me
+```
+
+This should result in a tailored day-one harness, not a generic scaffold.
 
 ### Option 1: Copy the template
 

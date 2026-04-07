@@ -33,6 +33,12 @@ The default loop is:
 
 This discipline is universal across project types.
 
+A good default for non-trivial orchestration is:
+
+- one blocker
+- one owner
+- one proof surface
+
 Software-heavy projects may add a stricter engineering overlay, but the core harness should always preserve:
 
 - memory in files, not chat
@@ -121,10 +127,25 @@ Create the meta layer when any of these happen:
 - Parallel-agent conflicts become common
 - A release or major milestone just finished and you want to preserve lessons
 
+### Optional control-tower snapshot
+
+Some advanced workspaces add a short `META_HARNESS.md` or equivalent control-tower file.
+
+Use it only when one `STATUS.md` is no longer enough to re-anchor agents quickly.
+
+Its job is to state:
+
+- what is true right now
+- what the active blocker is
+- which owner or lane matters now
+- which detailed files back that truth
+
+Keep it short. It should point to deeper ledgers, not duplicate them.
+
 ### The self-improvement loop
 
 ```
-Agent sessions produce execution logs
+Agent sessions produce durable updates + optional execution logs
         |
         v
 Retrospective agent reads logs + current harness
@@ -189,7 +210,7 @@ A pattern enters the shared core only when:
 
 ## How layers interact
 
-**Layer 1 feeds Layer 2:** Agent sessions produce execution logs and surface failure patterns.
+**Layer 1 feeds Layer 2:** Agent sessions produce durable updates, optional execution logs, and surface failure patterns.
 
 **Layer 2 feeds Layer 1:** Retrospective proposals improve the harness files that agents read.
 
